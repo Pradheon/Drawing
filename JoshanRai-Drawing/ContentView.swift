@@ -51,6 +51,7 @@ struct Arc: InsettableShape {
  */
 
 //   Transforming shapes using CGAffineTransform and even-odd fills
+/*
 struct Flower: Shape {
     // How much to move this petal away from the center
     var petalOffset: Double = -20
@@ -84,11 +85,14 @@ struct Flower: Shape {
         return path
     }
 }
+ */
 
 struct ContentView: View {
     //   Transforming shapes using CGAffineTransform and even-odd fills
+    /*
     @State private var petalOffset = -20.0
     @State private var petalWidth = 100.0
+     */
     
     var body: some View {
         
@@ -129,6 +133,7 @@ struct ContentView: View {
          */
         
         //   Transforming shapes using CGAffineTransform and even-odd fills
+        /*
         VStack {
             Flower(petalOffset: petalOffset, petalWidth: petalWidth)
                 //.stroke(.red, lineWidth:  1)
@@ -142,6 +147,21 @@ struct ContentView: View {
             Slider(value: $petalWidth, in: 0...100)
                 .padding(.horizontal)
         }
+         */
+        
+        //   Creative borders and fills using ImagePaint
+        /*
+        Text("Hello, World!")
+            .frame(width: 300, height: 300)
+            .border(ImagePaint(image: Image("Example"), sourceRect: CGRect(x: 0, y: 0.25, width: 1, height: 0.5), scale: 0.2), width: 30)
+            //.background(Image("Example"))
+            //.border(.red)
+            //.background(.red)
+         */
+        
+        Capsule()
+            .strokeBorder(ImagePaint(image: Image("Example"), scale: 0.1), lineWidth: 20)
+            .frame(width: 300, height: 200)
         
         //   Placeholder so the code doesn't complain during comments
         //Text("Hello, Sekai!")
