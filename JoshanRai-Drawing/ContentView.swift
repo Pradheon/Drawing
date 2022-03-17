@@ -192,6 +192,7 @@ struct Checkerboard: Shape {
  */
 
 //   Creating a spirograph with SwiftUI
+/*
 struct Spirograph: Shape {
     let innerRadius: Int
     let outerRadius: Int
@@ -239,6 +240,9 @@ struct Spirograph: Shape {
         return path
     }
 }
+ */
+
+//   Drawing: Wrap up
 
 struct ContentView: View {
     //   Transforming shapes using CGAffineTransform and even-odd fills
@@ -263,11 +267,13 @@ struct ContentView: View {
      */
     
     //   Creating a spirograph with SwiftUI
+    /*
     @State private var innerRadius = 125.0
     @State private var outerRadius = 75.0
     @State private var distance = 25.0
     @State private var amount = 1.0
     @State private var hue = 0.6
+     */
     
     var body: some View {
         
@@ -425,6 +431,7 @@ struct ContentView: View {
          */
         
         //   Creating a spirograph with SwiftUI
+        /*
         VStack(spacing: 0) {
             Spacer()
             
@@ -455,6 +462,20 @@ struct ContentView: View {
                 Slider(value: $hue)
                     .padding(.horizontal)
             }
+        }
+         */
+        
+        //   Drawing: Wrap up
+        TabView {
+            ArrowView()
+                .tabItem {
+                    Label("Arrow", systemImage: "arrow.up")
+                }
+            
+            ColorCycleRectangleView()
+                .tabItem {
+                    Label("Color Cycle Rectangle", systemImage: "rectangle.stack")
+                }
         }
         
         //   Placeholder so the code doesn't complain during comments
