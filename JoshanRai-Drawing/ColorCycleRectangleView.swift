@@ -55,8 +55,9 @@ struct ColorCycleRectangleView: View {
             ColorCyclingRectangle(amount: colorCycle)
                 .frame(width: 300, height: 300)
             
-            Text("Color Cycle: \(Int(colorCycle))")
+            Text("Color Cycle: \(colorCycle)")
             Slider(value: $colorCycle)
+                .padding()
         }
     }
 }
