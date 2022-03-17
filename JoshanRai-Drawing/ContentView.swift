@@ -88,6 +88,7 @@ struct Flower: Shape {
  */
 
 //   Enabling high-performance Metal rendering with drawingGroup()
+/*
 struct ColorCyclingCircle: View {
     var amount = 0.0
     var steps = 100
@@ -124,6 +125,7 @@ struct ColorCyclingCircle: View {
         return Color(hue: targetHue, saturation: 1, brightness: brightness)
     }
 }
+ */
 
 struct ContentView: View {
     //   Transforming shapes using CGAffineTransform and even-odd fills
@@ -133,7 +135,10 @@ struct ContentView: View {
      */
     
     //   Enabling high-performance Metal rendering with drawingGroup()
-    @State private var colorCycle = 0.0
+    //@State private var colorCycle = 0.0
+    
+    //   Special effects in SwiftUI: blurs, blending, and more
+    @State private var amount = 0.0
     
     var body: some View {
         
@@ -206,12 +211,65 @@ struct ContentView: View {
          */
         
         //   Enabling high-performance Metal rendering with drawingGroup()
+        /*
         VStack {
             ColorCyclingCircle(amount: colorCycle)
                 .frame(width: 300, height: 300)
             
             Slider(value: $colorCycle)
         }
+         */
+        
+        //   Special effects in SwiftUI: blurs, blending, and more
+        /*
+        ZStack {
+            Image("Example")
+            
+            Rectangle()
+                .fill(.red)
+                .blendMode(.multiply)
+        }
+         */
+        /*
+        Image("Example")
+            .colorMultiply(.red)
+         */
+        VStack {
+            /*
+            ZStack {
+                Circle()
+                    .fill(Color(red: 1, green: 0, blue: 0)) // can also use '.red'
+                    .frame(width: 200 * amount)
+                    .offset(x: -50, y: -80)
+                    .blendMode(.screen)
+                
+                Circle()
+                    .fill(Color(red: 0, green: 1, blue: 0)) // can also use '.green'
+                    .frame(width: 200 * amount)
+                    .offset(x: 50, y: -80)
+                    .blendMode(.screen)
+                
+                Circle()
+                    .fill(Color(red: 0, green: 0, blue: 1)) // can also use 'blue'
+                    .frame(width: 200 * amount)
+                    .blendMode(.screen)
+            }
+            .frame(width: 300, height: 300)
+             */
+            
+            Image("Example")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .saturation(amount)
+                .blur(radius: (1 - amount) * 20)
+            
+            Slider(value: $amount)
+                .padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
+        .ignoresSafeArea()
         
         //   Placeholder so the code doesn't complain during comments
         //Text("Hello, Sekai!")
